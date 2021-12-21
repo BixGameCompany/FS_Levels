@@ -11,9 +11,7 @@ Shader "UnityLibrary/Mesh/DriftingWaves"
         _BumpMap("Normal Map", 2D) = "bump" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-        _MetallicGlossMap("Metallic Gloss Map", 2D) = "white" {}
-        _Emission("Emission", float) = 1
-
+        [HDR] _EmissionColor("Color", Color) = (0,0,0)
         _Radius("Radius", float) = 1
         _PeakSoftener("PeakSoftener", float) = 0.5
         _FresnelPower("FresnelPower", float) = 5
@@ -120,8 +118,6 @@ Shader "UnityLibrary/Mesh/DriftingWaves"
             //o.Metallic = cSpec.r * _Metallic;
             o.Smoothness = _Glossiness*2;
             o.Alpha = c.a;
-            
-            //o.Emission = c.rgb * tex2D(_MainTex, IN.uv_MainTex).a * _EmissionColor;
         }
         ENDCG
     }

@@ -9,5 +9,7 @@ public class PlatformHover : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x,Mathf.PingPong(Time.time * bounceSpeed,bounceHeight)- bounceHeight/2,transform.position.z);
+        
     }
+    
 }
